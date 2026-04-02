@@ -1,13 +1,15 @@
+GO := $(shell which go 2>/dev/null || which go.exe 2>/dev/null || echo go)
+
 build:
-	go build -o datanest cmd/main.go
+	"$(GO)" build -o datanest cmd/main.go
 
 run:
-	go run cmd/main.go
+	"$(GO)" run cmd/main.go
 
 test:
-	go test ./... -v
+	"$(GO)" test ./... -v
 
 tidy:
-	go mod tidy
+	"$(GO)" mod tidy
 clean:
 	rm -f datanest
